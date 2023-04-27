@@ -19,10 +19,13 @@ from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 
 from customer.views import CustomersViewSet
+from educational_programs.views import ProgramCategoriesViewSet, ProgramSubCategoriesViewSet
 
 router = SimpleRouter()
 
 router.register(r'customer', CustomersViewSet)
+router.register(r'program_categories', ProgramCategoriesViewSet)
+router.register(r'program_sub_categories', ProgramSubCategoriesViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
