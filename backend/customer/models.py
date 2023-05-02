@@ -1,8 +1,7 @@
 from datetime import datetime
 
 from django.db import models
-from decorators.track_create_and_change import track_creation_and_change
-
+from helpers.decorators.track_create_and_change import track_creation_and_change
 
 
 @track_creation_and_change
