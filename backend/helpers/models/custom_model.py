@@ -1,13 +1,14 @@
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.authentication import JWTAuthentication
 
 
 class CustomModelViewSet(ModelViewSet):
-    permission_classes = (IsAuthenticated,)
-    authentication_classes = [JWTAuthentication]
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    authentication_classes = [JWTAuthentication, BasicAuthentication, SessionAuthentication]
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()

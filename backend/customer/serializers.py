@@ -1,9 +1,8 @@
-from rest_framework.serializers import ModelSerializer
-
 from .models import Customer
+from helpers.models.custom_serializer import CustomSerializer
 
 
-class CustomerSerializer(ModelSerializer):
+class CustomerSerializer(CustomSerializer):
     class Meta:
         model = Customer
         fields = '__all__'
