@@ -1,9 +1,8 @@
-from rest_framework.serializers import ModelSerializer
-
 from teacher.models import Teacher
+from helpers.models.custom_serializer import CustomSerializer
 
 
-class TeachersSerializer(ModelSerializer):
+class TeachersSerializer(CustomSerializer):
     class Meta:
         model = Teacher
         fields = '__all__'
