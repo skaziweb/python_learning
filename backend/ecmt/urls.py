@@ -39,4 +39,5 @@ urlpatterns = [
     path('api/0/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/0/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/0/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]

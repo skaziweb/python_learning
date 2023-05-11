@@ -13,10 +13,11 @@ class CustomModelViewSet(ModelViewSet):
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         if instance.is_deleted:
-            return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED, data={
-                "error": "If you what to restore the record, send a PUT request with is_deleted=False"
-            })
+            instance.is_deleted = False
+            instance.save()
+            print(instance)
+            return Response(status=status.HTTP_200_OK, data=f'Customer with id {instance.pk} have been restored!')
         else:
             instance.is_deleted = True
             instance.save()
-            return Response(status=status.HTTP_200_OK, data=self.serializer(instance).data)
+            return Response(status=status.HTTP_200_OK, data=f'Customer with id {instance.pk} have been deleted!')
