@@ -10,7 +10,11 @@ class Teacher(models.Model):
     name = models.CharField(max_length=50, verbose_name='Фамилия Имя Отчество')
     phone = models.CharField(max_length=50, unique=True, verbose_name='Телефон', null=True)
     email = models.EmailField(max_length=50, unique=True, verbose_name='Электронная почта', null=True)
-    sub_categories = models.ManyToManyField(ProgramSubCategories, related_name='teacher_sub_category')
+    sub_categories = models.ManyToManyField(
+        ProgramSubCategories,
+        related_name='teacher_sub_category',
+        verbose_name='Категория программы'
+    )
 
     class Meta:
         db_table = 'teachers'
@@ -27,13 +31,15 @@ class Workload(models.Model):
         Teacher,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="workload_teacher"
+        related_name="workload_teacher",
+        verbose_name='Преподаватель'
     )
     lecture = models.ForeignKey(
         Lecture,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="workload_lecture"
+        related_name="workload_lecture",
+        verbose_name='Лекция'
     )
     hours = models.DecimalField('Часы', max_digits=4, decimal_places=2)
 

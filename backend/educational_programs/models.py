@@ -21,7 +21,13 @@ class ProgramCategories(models.Model):
 class ProgramSubCategories(models.Model):
     title = models.CharField(max_length=50, verbose_name='Название подкатегории')
     code = models.DecimalField(max_digits=4, decimal_places=2, verbose_name='Код подкатегории')
-    category = models.ForeignKey(ProgramCategories, on_delete=models.SET_NULL, null=True, related_name='category_sub_category')
+    category = models.ForeignKey(
+        ProgramCategories,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name='category_sub_category',
+        verbose_name='Программа'
+    )
 
     class Meta:
         db_table = 'program_sub_categories'

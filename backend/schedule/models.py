@@ -15,7 +15,8 @@ class Schedule(models.Model):
         ProgramSubCategories,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="schedule_sub_category"
+        related_name="schedule_sub_category",
+        verbose_name='Категория программы'
     )
 
     class Meta:
@@ -34,7 +35,8 @@ class Lecture(models.Model):
         Schedule,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="lecture_schedule"
+        related_name="lecture_schedule",
+        verbose_name='Расписание'
     )
     lecture_date = models.DateField("Дата лекции", auto_now=False, auto_now_add=False)
     attestation_date = models.DateField("Дата аттестации", auto_now=False, auto_now_add=False, null=True, blank=True)

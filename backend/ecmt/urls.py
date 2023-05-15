@@ -27,6 +27,8 @@ from customer.views import CustomersViewSet
 from educational_programs.views import ProgramCategoriesViewSet, ProgramSubCategoriesViewSet
 from schedule.views import SchedulesViewSet, LectureViewSet
 from teacher.views import WorkloadViewSet, TeacherViewSet
+from group.views import GroupViewSet
+from position.views import PositionViewSet
 
 from .resources import ResourcesView
 
@@ -37,8 +39,10 @@ router.register(r'program_categories', ProgramCategoriesViewSet)
 router.register(r'program_sub_categories', ProgramSubCategoriesViewSet)
 router.register(r'schedule', SchedulesViewSet)
 router.register(r'lecture', LectureViewSet)
-router.register(r'workload', WorkloadViewSet)
 router.register(r'teacher', TeacherViewSet)
+router.register(r'workload', WorkloadViewSet)
+router.register(r'position', PositionViewSet)
+router.register(r'group', GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

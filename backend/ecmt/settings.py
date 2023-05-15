@@ -48,7 +48,9 @@ INSTALLED_APPS = [
     'customer',
     'educational_programs',
     'teacher',
-    'schedule'
+    'schedule',
+    'position',
+    'group',
 ]
 
 MIDDLEWARE = [
