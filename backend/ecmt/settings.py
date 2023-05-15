@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'customer',
     'educational_programs',
-    'teacher'
+    'teacher',
+    'schedule'
 ]
 
 MIDDLEWARE = [

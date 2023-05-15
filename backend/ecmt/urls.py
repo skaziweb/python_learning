@@ -25,16 +25,21 @@ from rest_framework_simplejwt.views import (
 
 from customer.views import CustomersViewSet
 from educational_programs.views import ProgramCategoriesViewSet, ProgramSubCategoriesViewSet
+from schedule.views import SchedulesViewSet
+
+from .resources import ResourcesView
 
 router = DefaultRouter()
 
 router.register(r'customer', CustomersViewSet)
 router.register(r'program_categories', ProgramCategoriesViewSet)
 router.register(r'program_sub_categories', ProgramSubCategoriesViewSet)
+router.register(r'schedule', SchedulesViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/0/', include(router.urls)),
+    path('api/0/resources/', ResourcesView.as_view()),
     path('api/0/auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('api/0/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/0/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
