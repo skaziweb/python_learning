@@ -25,7 +25,8 @@ from rest_framework_simplejwt.views import (
 
 from customer.views import CustomersViewSet
 from educational_programs.views import ProgramCategoriesViewSet, ProgramSubCategoriesViewSet
-from schedule.views import SchedulesViewSet
+from schedule.views import SchedulesViewSet, LectureViewSet
+from teacher.views import WorkloadViewSet, TeacherViewSet
 
 from .resources import ResourcesView
 
@@ -35,6 +36,9 @@ router.register(r'customer', CustomersViewSet)
 router.register(r'program_categories', ProgramCategoriesViewSet)
 router.register(r'program_sub_categories', ProgramSubCategoriesViewSet)
 router.register(r'schedule', SchedulesViewSet)
+router.register(r'lecture', LectureViewSet)
+router.register(r'workload', WorkloadViewSet)
+router.register(r'teacher', TeacherViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
